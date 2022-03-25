@@ -1,0 +1,18 @@
+*{
+    margin: 20px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    color: #adadad;
+    font-size: 18px;
+}
+
+body{
+    background: #272727;
+}
+
+h1{
+    font-family: 'Roboto', sans-serif;
+}

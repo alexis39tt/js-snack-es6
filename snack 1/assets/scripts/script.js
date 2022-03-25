@@ -35,11 +35,10 @@ let bikes = [
 ];
 
 let container = document.querySelector(`#container`);
-let lightest = 0;
 
 for(i=0; i<bikes.length; i++){
     let {weight} = bikes[i];
     if(weight < weight[i-1]){
-        container.innerHTML += `<h1>La bici più leggera pesa ${weight}kg</h1>`;
+        container.innerHTML = `<h1>La bici più leggera pesa ${weight}kg</h1>`;
     }
 }

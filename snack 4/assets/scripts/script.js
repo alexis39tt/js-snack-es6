@@ -1,67 +1,55 @@
-/* Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
-Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
-Generare numeri random al posto degli 0 nelle proprietà:
-Punti fatti e falli subiti.
-Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
+/*Dato un elenco degli studenti di una facoltà, con il totale dei loro voti
+let students = [
+    { name: 'Marco', id: 213, grades: 78 },
+    { name: 'Paola', id: 110, grades: 96 },
+    { name: 'Andrea', id: 250, grades: 48 },
+    { name: 'Gaia', id: 145, grades: 74 },
+    { name: 'Luigi', id: 196, grades: 68 },
+    { name: 'Piero', id: 102, grades: 50 },
+    { name: 'Francesca', id: 120, grades: 84 },
+  ];
+1- Dobbiamo creare delle targhe con il loro nome in maiuscolo. Ci serve quindi un nuovo array di stringhe. Ogni elemento del nuovo array sarà il nome dello studente ma con tutte le lettere maiuscole.
+2- Dobbiamo creare un nuovo array con gli studenti che hanno un totale di voti superiore a 70
+3- Dobbiamo creare un nuovo array di tutti gli studenti che hanno un totale di voti superiore a 70 e id superiore a 120
 */
 
-let teams = [
-    {
-        'name': 'Juventus FC',
-        'points': 0,
-        'fouls': 0
-    },
-    {
-        'name': 'AS Roma',
-        'points': 0,
-        'fouls': 0
-    },
-    {
-        'name': 'SS Lazio',
-        'points': 0,
-        'fouls': 0
-    },
-    {
-        'name': 'AC Milan',
-        'points': 0,
-        'fouls': 0
-    },
-    {
-        'name': 'FC Inter',
-        'points': 0,
-        'fouls': 0
-    },
-    {
-        'name': 'SSC Napoli',
-        'points': 0,
-        'fouls': 0
-    },
-    {
-        'name': 'US Salernitana',
-        'points': 0,
-        'fouls': 0
-    },
+let students = [
+    { name: 'Marco', id: 213, grades: 78 },
+    { name: 'Paola', id: 110, grades: 96 },
+    { name: 'Andrea', id: 250, grades: 48 },
+    { name: 'Gaia', id: 145, grades: 74 },
+    { name: 'Luigi', id: 196, grades: 68 },
+    { name: 'Piero', id: 102, grades: 50 },
+    { name: 'Francesca', id: 120, grades: 84 },
 ];
 
-let teamparam = [];
-let teamprint = [];
-let table = document.querySelector(`#table`);
 
-for (i = 0; i < teams.length; i++) {
-    let points = Math.round(Math.random() * 100);
-    let fouls = Math.round(Math.random() * 10);
+/* 1 */
 
-    teamparam[i] = { ...teams[i], 'points': points, 'fouls': fouls };
-    teamprint[i] = {
-        'name': teams[i].name,
-        'fouls': teamparam[i].fouls
-    };
-    table.innerHTML += `
-    <tr>
-        <td>${teamprint[i].name}</td>
-        <td>${teamprint[i].fouls}</td>
-    </tr>`
-        
-}
+let tags = students.map((elm) => {
+    return elm.name.toUpperCase();
+})
 
-console.log(teamprint)
+console.log(tags)
+
+
+/* 2 */
+
+let goodgrades = students.filter((elm) => {
+    return elm.grades > 70;
+})
+
+console.log(goodgrades)
+
+
+/* 3 */
+
+let newStudents = [];
+
+students.forEach((elm) => {
+    if (elm.grades > 70 && elm.id > 120){
+        newStudents.push(elm);
+    }
+})
+
+console.log(newStudents)
